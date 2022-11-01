@@ -1,11 +1,11 @@
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { MantineProvider } from '@mantine/core';
+import { MantineProvider, Button, Loader } from '@mantine/core';
 import { MovieRoutes } from './features/movies';
 import { MainLayout } from './components/Layout';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from './libs/react-query';
 import { ErrorBoundary } from 'react-error-boundary';
-import { Button } from '@mantine/core';
 import { ErrorPage } from './router-error-page';
 
 const ErrorFallback = () => {
@@ -19,20 +19,22 @@ const ErrorFallback = () => {
 
 const App = () => {
   return (
-    <MantineProvider>
-      <BrowserRouter>
-        <ErrorBoundary FallbackComponent={ErrorFallback}>
-          <QueryClientProvider client={queryClient}>
-            <Routes>
-              <Route path="*" element={<ErrorPage />} />
-              <Route path="/" element={<MainLayout />}>
-                <Route index element={<MovieRoutes />} />
-              </Route>
-            </Routes>
-          </QueryClientProvider>
-        </ErrorBoundary>
-      </BrowserRouter>
-    </MantineProvider>
+    <React.Suspense fallback={<Loader />}>
+      <MantineProvider>
+        <BrowserRouter>
+          <ErrorBoundary FallbackComponent={ErrorFallback}>
+            <QueryClientProvider client={queryClient}>
+              <Routes>
+                <Route path="*" element={<ErrorPage />} />
+                <Route path="/" element={<MainLayout />}>
+                  <Route index element={<MovieRoutes />} />
+                </Route>
+              </Routes>
+            </QueryClientProvider>
+          </ErrorBoundary>
+        </BrowserRouter>
+      </MantineProvider>
+    </React.Suspense>
   );
 };
 
