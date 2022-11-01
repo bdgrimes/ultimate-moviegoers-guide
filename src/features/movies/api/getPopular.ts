@@ -11,6 +11,6 @@ export const getPopular = async (): Promise<Popular> => {
 export const usePopular = () => {
   return useQuery({
     queryKey: ['movies', 'popular'],
-    queryFn: () => getPopular,
+    queryFn: getPopular,
   });
 };

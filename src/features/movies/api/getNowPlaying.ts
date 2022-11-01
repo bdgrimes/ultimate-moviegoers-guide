@@ -11,6 +11,6 @@ export const getNowPlaying = async (): Promise<NowPlaying> => {
 export const useNowPlaying = () => {
   return useQuery({
     queryKey: ['movies', 'now-playing'],
-    queryFn: () => getNowPlaying,
+    queryFn: getNowPlaying,
   });
 };

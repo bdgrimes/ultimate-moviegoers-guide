@@ -11,6 +11,6 @@ export const getTopRated = async (): Promise<TopRated> => {
 export const useTopRated = () => {
   return useQuery({
     queryKey: ['movies', 'top-rated'],
-    queryFn: () => getTopRated,
+    queryFn: getTopRated,
   });
 };
