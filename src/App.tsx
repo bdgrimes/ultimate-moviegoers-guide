@@ -1,5 +1,5 @@
-import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { MantineProvider } from '@mantine/core';
 
 const routes = [
   {
@@ -11,7 +11,11 @@ const routes = [
 const router = createBrowserRouter(routes);
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <MantineProvider>
+      <RouterProvider router={router} />;
+    </MantineProvider>
+  );
 };
 
 export default App;
