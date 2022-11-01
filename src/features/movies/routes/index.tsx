@@ -1,10 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
-import { Movies } from './Movies';
+import { NowPlaying } from './NowPlaying';
 
 export const MovieRoutes = () => {
   return (
     <Routes>
-      <Route path="" element={<Movies />} />
+      <Route path="" element={<NowPlaying />} />
     </Routes>
   );
 };
