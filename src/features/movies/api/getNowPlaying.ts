@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { NowPlaying } from '../types/NowPlaying';
+import { NowPlaying } from '../types';
 
 export const getNowPlaying = async (): Promise<NowPlaying> => {
   const res = await fetch(
