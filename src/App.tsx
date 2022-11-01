@@ -1,19 +1,15 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { MantineProvider } from '@mantine/core';
-
-const routes = [
-  {
-    path: '/',
-    element: null,
-  },
-];
-
-const router = createBrowserRouter(routes);
+import { MovieRoutes } from './features/movies';
 
 const App = () => {
   return (
     <MantineProvider>
-      <RouterProvider router={router} />;
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MovieRoutes />} />
+        </Routes>
+      </BrowserRouter>
     </MantineProvider>
   );
 };
