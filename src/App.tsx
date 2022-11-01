@@ -6,6 +6,7 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from './libs/react-query';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Button } from '@mantine/core';
+import { ErrorPage } from './router-error-page';
 
 const ErrorFallback = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <ErrorBoundary FallbackComponent={ErrorFallback}>
           <QueryClientProvider client={queryClient}>
             <Routes>
+              <Route path="*" element={<ErrorPage />} />
               <Route path="/" element={<MainLayout />}>
                 <Route index element={<MovieRoutes />} />
               </Route>
