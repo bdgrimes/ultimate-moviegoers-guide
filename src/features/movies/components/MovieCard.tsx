@@ -1,21 +1,22 @@
-import { Card, Group, Image, Rating, Text } from '@mantine/core';
+import { Card, Group, Image, Text } from '@mantine/core';
+import { Link } from 'react-router-dom';
+import { Movie } from '../types';
+import { MovieRating } from './MovieRating';
 
 interface Props {
-  posterPath: string | null | undefined;
-  title: string | undefined;
-  voteAverage: number;
+  movie: Movie;
 }
 
-export const MovieCard = ({ posterPath, title, voteAverage }: Props) => {
-  const voteAverageAsFiveStarCount = (voteAverage * 10) / 20;
+export const MovieCard = ({ movie }: Props) => {
+  const { id, poster_path, title, vote_average } = movie;
 
   return (
     <Card shadow="md" radius="md" p="md">
-      <Card.Section>
-        {posterPath && (
+      <Card.Section component={Link} to={`/movies/${id}`}>
+        {poster_path && (
           <Image
             radius="sm"
-            src={`https://image.tmdb.org/t/p/w440_and_h660_face/${posterPath}`}
+            src={`https://image.tmdb.org/t/p/w440_and_h660_face/${poster_path}`}
             alt={title || 'No Title Found'}
           />
         )}
@@ -24,7 +25,7 @@ export const MovieCard = ({ posterPath, title, voteAverage }: Props) => {
         {title || 'No Title Found'}
       </Text>
       <Group position="center">
-        <Rating fractions={2} value={voteAverageAsFiveStarCount} />
+        <MovieRating vote_average={vote_average} />
       </Group>
     </Card>
   );

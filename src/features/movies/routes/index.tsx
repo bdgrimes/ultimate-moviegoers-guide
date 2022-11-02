@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { Movie } from './Movie';
 import { NowPlaying } from './NowPlaying';
 import { Popular } from './Popular';
 import { TopRated } from './TopRated';
@@ -9,6 +10,7 @@ export const MovieRoutes = () => {
       <Route path="" element={<NowPlaying />} />
       <Route path="popular" element={<Popular />} />
       <Route path="top-rated" element={<TopRated />} />
+      <Route path=":movieId" element={<Movie />} />
     </Routes>
   );
 };
