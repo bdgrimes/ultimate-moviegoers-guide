@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 export const Header = () => {
   return (
     <MantineHeader height={50} p="xs">
-      <Group position="center">
+      <Group position="left">
+        <Text weight="bold">UMMG 🎬</Text>
         <Text component={Link} to="/movies" weight="bold" color={'blue'}>
           Now Playing
         </Text>
