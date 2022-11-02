@@ -5,7 +5,9 @@ export const Header = () => {
   return (
     <MantineHeader height={50} p="xs">
       <Group position="left">
-        <Text weight="bold">UMMG 🎬</Text>
+        <Text weight="bold" component={Link} to="/">
+          UMMG 🎬
+        </Text>
         <Text component={Link} to="/movies" weight="bold" color={'blue'}>
           Now Playing
         </Text>
