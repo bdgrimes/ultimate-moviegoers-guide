@@ -15,7 +15,12 @@ export const TopRated = () => {
   return (
     <>
       <Center>
-        <Title order={2} weight="400">
+        <Title
+          order={2}
+          weight="400"
+          variant="gradient"
+          gradient={{ from: 'indigo', to: 'blue', deg: 45 }}
+        >
           Top Rated
         </Title>
       </Center>
