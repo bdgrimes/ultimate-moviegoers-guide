@@ -1,6 +1,6 @@
 import { Movie } from './Movie';
 
-export type Popular = {
+export type PaginatedMovies = {
   page?: number;
   results?: Movie[];
   total_results?: number;
