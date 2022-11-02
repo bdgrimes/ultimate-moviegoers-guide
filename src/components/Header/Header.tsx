@@ -17,6 +17,9 @@ export const Header = () => {
         <Text component={Link} to="/movies/top-rated" weight="bold" color={'blue'}>
           Top Rated
         </Text>
+        <Text component={Link} to="/about" weight="bold" color={'blue'}>
+          About
+        </Text>
       </Group>
     </MantineHeader>
   );

@@ -27,8 +27,8 @@ const App = () => {
             <QueryClientProvider client={queryClient}>
               <Routes>
                 <Route path="*" element={<ErrorPage />} />
-                <Route path="/" element={<MainLayout />}>
-                  <Route index path="/" element={<MiscRoutes />} />
+                <Route element={<MainLayout />}>
+                  <Route index path="/*" element={<MiscRoutes />} />
                   <Route path="/movies/*" element={<MovieRoutes />} />
                 </Route>
               </Routes>

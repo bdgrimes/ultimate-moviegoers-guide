@@ -5,8 +5,8 @@ import { About } from './About';
 export const MiscRoutes = () => {
   return (
     <Routes>
-      <Route index path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
+      <Route path="/" element={<Home />} />
+      <Route path="about" element={<About />} />
     </Routes>
   );
 };
