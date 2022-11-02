@@ -1,15 +1,7 @@
-import {
-  createStyles,
-  Burger,
-  Group,
-  Header as MantineHeader,
-  Text,
-  Box,
-  Menu,
-} from '@mantine/core';
+import { createStyles, Group, Header as MantineHeader, Text, Box } from '@mantine/core';
 import { Link } from 'react-router-dom';
 import { MovieSearch } from '../../features/movies/components/MovieSearch';
-import { useDisclosure } from '@mantine/hooks';
+import { HeaderMenu } from './HeaderMenu';
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -40,41 +32,13 @@ const useStyles = createStyles((theme) => ({
 }));
 
 export const Header = () => {
-  const [opened, { toggle, close }] = useDisclosure(false);
   const { classes } = useStyles();
 
   return (
     <MantineHeader height={50} p="xs">
       <Box className={classes.container}>
         <Group>
-          <Menu shadow="md" width={200}>
-            <Menu.Target>
-              <Burger className={classes.burger} opened={opened} onClick={toggle} size="sm" />
-            </Menu.Target>
-            <Menu.Dropdown>
-              <Menu.Label>Links</Menu.Label>
-              <Menu.Item>
-                <Text component={Link} to="/movies" color="blue" onClick={close}>
-                  Now Playing
-                </Text>
-              </Menu.Item>
-              <Menu.Item>
-                <Text component={Link} to="/movies/popular" color="blue" onClick={close}>
-                  Popular
-                </Text>
-              </Menu.Item>
-              <Menu.Item>
-                <Text component={Link} to="/movies/top-rated" color="blue" onClick={close}>
-                  Top Rated
-                </Text>
-              </Menu.Item>
-              <Menu.Item>
-                <Text component={Link} to="/about" color="blue" onClick={close}>
-                  About
-                </Text>
-              </Menu.Item>
-            </Menu.Dropdown>
-          </Menu>
+          <HeaderMenu />
           <Text weight="bold" component={Link} to="/" mr={5}>
             UMMG 🎬
           </Text>
