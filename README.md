@@ -8,7 +8,7 @@ Movie data provided by [TheMovieDB](https://www.themoviedb.org/)
 
 ## Table Of Contents
 
-- [Deploying Locally](docs/local-deployment.md)
+- [Deploying Locally For Development](docs/local-development.md)
 
 ## License
 
