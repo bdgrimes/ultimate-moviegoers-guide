@@ -8,7 +8,7 @@ interface Props {
 
 export const MovieList = ({ movies }: Props) => {
   return (
-    <Grid>
+    <Grid m="md">
       {movies?.map((movie) => (
         <Grid.Col key={movie.id} lg={2} md={6} sm={6}>
           <MovieCard
