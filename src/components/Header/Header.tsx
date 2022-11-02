@@ -11,9 +11,6 @@ const useStyles = createStyles((theme) => ({
     '&:hover': {
       backgroundColor: theme.colors.blue[1],
     },
-    selectedLink: {
-      color: theme.colors.blue[5],
-    },
   },
 }));
 
