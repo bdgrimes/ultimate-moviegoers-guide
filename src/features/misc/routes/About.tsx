@@ -1,4 +1,4 @@
-import { Grid, Space, Title } from '@mantine/core';
+import { Grid, Space, Title, Text } from '@mantine/core';
 import { ReactComponent as MovieDbSvg } from '../../../assets/themoviedb.svg';
 
 export const About = () => {
@@ -16,7 +16,7 @@ export const About = () => {
         >
           All movie data provided by The Movie Database (TMBD).
           <Space h="md" />
-          https://www.themoviedb.org/
+          <a href="https://www.themoviedb.org/">https://www.themoviedb.org/</a>
         </Title>
       </Grid.Col>
     </Grid>
