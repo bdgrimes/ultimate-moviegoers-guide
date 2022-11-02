@@ -1,4 +1,4 @@
-import { Grid, Space, Title, Text } from '@mantine/core';
+import { Grid, Space, Title } from '@mantine/core';
 import { ReactComponent as MovieDbSvg } from '../../../assets/themoviedb.svg';
 
 export const About = () => {
