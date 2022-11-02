@@ -1,4 +1,4 @@
-import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
+import { useInfiniteQuery } from '@tanstack/react-query';
 import { PaginatedMovies } from '../types';
 
 export const getTopRated = async ({ pageParam = 1 }): Promise<PaginatedMovies> => {

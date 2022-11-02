@@ -7,6 +7,7 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from './libs/react-query';
 import { ErrorBoundary } from 'react-error-boundary';
 import { ErrorPage } from './router-error-page';
+import { MiscRoutes } from './features/misc/routes';
 
 const ErrorFallback = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
               <Routes>
                 <Route path="*" element={<ErrorPage />} />
                 <Route path="/" element={<MainLayout />}>
+                  <Route index path="/" element={<MiscRoutes />} />
                   <Route path="/movies/*" element={<MovieRoutes />} />
                 </Route>
               </Routes>
