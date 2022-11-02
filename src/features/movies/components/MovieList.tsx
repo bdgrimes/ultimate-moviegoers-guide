@@ -1,5 +1,5 @@
 import { Movie } from '../types';
-import { Grid, Image } from '@mantine/core';
+import { Grid } from '@mantine/core';
 import { MovieCard } from './MovieCard';
 
 interface Props {

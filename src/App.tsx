@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { MantineProvider, Button, Loader } from '@mantine/core';
 import { MovieRoutes } from './features/movies';
 import { MainLayout } from './components/Layout';
@@ -21,7 +21,7 @@ const App = () => {
   return (
     <React.Suspense fallback={<Loader />}>
       <MantineProvider>
-        <BrowserRouter>
+        <HashRouter>
           <ErrorBoundary FallbackComponent={ErrorFallback}>
             <QueryClientProvider client={queryClient}>
               <Routes>
@@ -32,7 +32,7 @@ const App = () => {
               </Routes>
             </QueryClientProvider>
           </ErrorBoundary>
-        </BrowserRouter>
+        </HashRouter>
       </MantineProvider>
     </React.Suspense>
   );
