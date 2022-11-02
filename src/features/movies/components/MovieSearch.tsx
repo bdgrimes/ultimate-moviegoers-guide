@@ -24,6 +24,7 @@ export const MovieSearch = () => {
     <Select
       placeholder="Search for a movie..."
       searchable
+      clearable
       nothingFound="No Movie Found"
       data={movieNames || []}
       onSearchChange={setSearchValue}
