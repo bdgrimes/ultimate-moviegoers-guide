@@ -1,4 +1,4 @@
-import { Loader } from '@mantine/core';
+import { CenteredLoader } from '../../../components/Elements/CenteredLoader';
 import { useNowPlaying } from '../api/getNowPlaying';
 import { MovieList } from '../components/MovieList';
 
@@ -6,7 +6,7 @@ export const NowPlaying = () => {
   const nowPlayingQuery = useNowPlaying();
 
   if (nowPlayingQuery.isLoading) {
-    return <Loader />;
+    return <CenteredLoader />;
   }
 
   if (!nowPlayingQuery?.data?.results) return null;

@@ -1,4 +1,4 @@
-import { Loader } from '@mantine/core';
+import { CenteredLoader } from '../../../components/Elements/CenteredLoader';
 import { useTopRated } from '../api/getTopRated';
 import { MovieList } from '../components/MovieList';
 
@@ -6,7 +6,7 @@ export const TopRated = () => {
   const topRatedQuery = useTopRated();
 
   if (topRatedQuery.isLoading) {
-    return <Loader />;
+    return <CenteredLoader />;
   }
 
   if (!topRatedQuery?.data?.results) return null;
