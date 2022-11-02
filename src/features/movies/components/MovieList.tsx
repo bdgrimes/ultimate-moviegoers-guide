@@ -11,7 +11,7 @@ export const MovieList = ({ paginatedMovies }: Props) => {
     <Grid m="md">
       {paginatedMovies.map((paginatedMovie) =>
         paginatedMovie?.results?.map((movie) => (
-          <Grid.Col key={movie.id} lg={2} md={6} sm={6}>
+          <Grid.Col key={movie.id} lg={2} md={4} sm={6}>
             <MovieCard movie={movie} />
           </Grid.Col>
         ))
