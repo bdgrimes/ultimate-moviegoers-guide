@@ -1,6 +1,7 @@
 import { CenteredLoader } from '../../../components/Elements/CenteredLoader';
 import { useNowPlaying } from '../api/getNowPlaying';
 import { MovieList } from '../components/MovieList';
+import { Button, Center } from '@mantine/core';
 
 export const NowPlaying = () => {
   const nowPlayingQuery = useNowPlaying();
@@ -9,7 +10,14 @@ export const NowPlaying = () => {
     return <CenteredLoader />;
   }
 
-  if (!nowPlayingQuery?.data?.results) return null;
+  if (!nowPlayingQuery?.data?.pages) return null;
 
-  return <MovieList movies={nowPlayingQuery.data.results} />;
+  return (
+    <>
+      <MovieList paginatedMovies={nowPlayingQuery!.data!.pages} />
+      <Center>
+        <Button onClick={() => nowPlayingQuery.fetchNextPage()}>Load More</Button>
+      </Center>
+    </>
+  );
 };

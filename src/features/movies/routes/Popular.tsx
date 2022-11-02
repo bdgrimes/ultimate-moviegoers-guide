@@ -1,6 +1,7 @@
 import { CenteredLoader } from '../../../components/Elements/CenteredLoader';
 import { usePopular } from '../api/getPopular';
 import { MovieList } from '../components/MovieList';
+import { Button, Center } from '@mantine/core';
 
 export const Popular = () => {
   const popularQuery = usePopular();
@@ -9,7 +10,14 @@ export const Popular = () => {
     return <CenteredLoader />;
   }
 
-  if (!popularQuery?.data?.results) return null;
+  if (!popularQuery?.data?.pages) return null;
 
-  return <MovieList movies={popularQuery.data.results} />;
+  return (
+    <>
+      <MovieList paginatedMovies={popularQuery.data.pages} />
+      <Center>
+        <Button onClick={() => popularQuery.fetchNextPage()}>Load More</Button>
+      </Center>
+    </>
+  );
 };

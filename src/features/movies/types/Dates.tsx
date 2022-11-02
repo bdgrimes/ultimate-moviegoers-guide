@@ -1,4 +1,4 @@
 export type Dates = {
-  maximum?: string;
-  minimum?: string;
+  maximum: string;
+  minimum: string;
 };

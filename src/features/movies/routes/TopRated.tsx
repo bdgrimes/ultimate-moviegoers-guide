@@ -1,6 +1,7 @@
 import { CenteredLoader } from '../../../components/Elements/CenteredLoader';
 import { useTopRated } from '../api/getTopRated';
 import { MovieList } from '../components/MovieList';
+import { Button, Center } from '@mantine/core';
 
 export const TopRated = () => {
   const topRatedQuery = useTopRated();
@@ -9,7 +10,14 @@ export const TopRated = () => {
     return <CenteredLoader />;
   }
 
-  if (!topRatedQuery?.data?.results) return null;
+  if (!topRatedQuery?.data?.pages) return null;
 
-  return <MovieList movies={topRatedQuery.data.results} />;
+  return (
+    <>
+      <MovieList paginatedMovies={topRatedQuery.data.pages} />
+      <Center>
+        <Button onClick={() => topRatedQuery.fetchNextPage()}>Load More</Button>
+      </Center>
+    </>
+  );
 };
