@@ -20,7 +20,7 @@ const ErrorFallback = () => {
 const App = () => {
   return (
     <React.Suspense fallback={<Loader />}>
-      <MantineProvider>
+      <MantineProvider withGlobalStyles withNormalizeCSS>
         <HashRouter>
           <ErrorBoundary FallbackComponent={ErrorFallback}>
             <QueryClientProvider client={queryClient}>
