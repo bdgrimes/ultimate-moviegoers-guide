@@ -27,7 +27,7 @@ const App = () => {
               <Routes>
                 <Route path="*" element={<ErrorPage />} />
                 <Route path="/" element={<MainLayout />}>
-                  <Route index element={<MovieRoutes />} />
+                  <Route path="/movies/*" element={<MovieRoutes />} />
                 </Route>
               </Routes>
             </QueryClientProvider>

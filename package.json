@@ -2,7 +2,7 @@
   "name": "ultimate-moviegoers-guide",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://bdgrimes.github.io/ultimate-moviegoers-guide/",
+  "homepage": "https://bdgrimes.github.io/ultimate-moviegoers-guide/#/movies",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@mantine/core": "^5.6.3",
