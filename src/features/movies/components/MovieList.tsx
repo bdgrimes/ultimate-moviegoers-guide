@@ -10,7 +10,7 @@ export const MovieList = ({ movies }: Props) => {
   return (
     <Grid>
       {movies?.map((movie) => (
-        <Grid.Col key={movie.id} span={2}>
+        <Grid.Col key={movie.id} lg={2} md={6} sm={6}>
           <MovieCard
             posterPath={movie.poster_path}
             title={movie.title}
