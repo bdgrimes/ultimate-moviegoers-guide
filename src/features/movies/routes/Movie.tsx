@@ -20,7 +20,7 @@ export const Movie = () => {
 
   return (
     <Grid mx={20}>
-      <Grid.Col xs={3}>
+      <Grid.Col sm={3}>
         <Image
           radius="sm"
           src={`https://image.tmdb.org/t/p/w440_and_h660_face/${movieDetailsQuery.data.poster_path}`}
@@ -29,7 +29,7 @@ export const Movie = () => {
         />
       </Grid.Col>
       <Grid.Col xs={1} />
-      <Grid.Col xs={6} mt={20}>
+      <Grid.Col sm={6} mt={20}>
         <Container
           sx={(theme) => ({
             backgroundColor: theme.colors.gray[2],
