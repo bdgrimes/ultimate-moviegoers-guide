@@ -1,6 +1,7 @@
 import { createStyles, Burger, Menu, Text } from '@mantine/core';
 import { Link } from 'react-router-dom';
 import { useDisclosure } from '@mantine/hooks';
+import { NavLink } from './types';
 
 const useStyles = createStyles((theme) => ({
   burger: {
@@ -10,9 +11,21 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export const HeaderMenu = () => {
+interface Props {
+  links: NavLink[];
+}
+
+export const HeaderMenu = ({ links }: Props) => {
   const { classes } = useStyles();
   const [opened, { toggle, close }] = useDisclosure(false);
+
+  const menuLinks = links.map((link) => (
+    <Menu.Item>
+      <Text component={Link} to={link.url} color="blue" onClick={close}>
+        {link.name}
+      </Text>
+    </Menu.Item>
+  ));
 
   return (
     <Menu shadow="md" width={200}>
@@ -21,26 +34,7 @@ export const HeaderMenu = () => {
       </Menu.Target>
       <Menu.Dropdown>
         <Menu.Label>Links</Menu.Label>
-        <Menu.Item>
-          <Text component={Link} to="/movies" color="blue" onClick={close}>
-            Now Playing
-          </Text>
-        </Menu.Item>
-        <Menu.Item>
-          <Text component={Link} to="/movies/popular" color="blue" onClick={close}>
-            Popular
-          </Text>
-        </Menu.Item>
-        <Menu.Item>
-          <Text component={Link} to="/movies/top-rated" color="blue" onClick={close}>
-            Top Rated
-          </Text>
-        </Menu.Item>
-        <Menu.Item>
-          <Text component={Link} to="/about" color="blue" onClick={close}>
-            About
-          </Text>
-        </Menu.Item>
+        {menuLinks}
       </Menu.Dropdown>
     </Menu>
   );

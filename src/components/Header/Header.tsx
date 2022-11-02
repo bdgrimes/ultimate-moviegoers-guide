@@ -2,6 +2,7 @@ import { createStyles, Group, Header as MantineHeader, Text, Box } from '@mantin
 import { Link } from 'react-router-dom';
 import { MovieSearch } from '../../features/movies/components/MovieSearch';
 import { HeaderMenu } from './HeaderMenu';
+import { NavLink } from './types';
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -31,32 +32,46 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
+const links: NavLink[] = [
+  {
+    name: 'Now Playing',
+    url: '/movies',
+  },
+  {
+    name: 'Popular',
+    url: '/movies/popular',
+  },
+  {
+    name: 'Top Rated',
+    url: '/movies/top-rated',
+  },
+  {
+    name: 'About',
+    url: '/about',
+  },
+];
+
 export const Header = () => {
   const { classes } = useStyles();
+
+  const navLinks = links.map((link) => (
+    <Text component={Link} to={link.url} className={classes.link}>
+      {link.name}
+    </Text>
+  ));
 
   return (
     <MantineHeader height={50} p="xs">
       <Box className={classes.container}>
         <Group>
-          <HeaderMenu />
+          <HeaderMenu links={links} />
           <Text weight="bold" component={Link} to="/" mr={5}>
             UMMG 🎬
           </Text>
         </Group>
         <Group>
           <Group ml={50} spacing={5} className={classes.linkContainer}>
-            <Text component={Link} to="/movies" className={classes.link}>
-              Now Playing
-            </Text>
-            <Text component={Link} to="/movies/popular" className={classes.link}>
-              Popular
-            </Text>
-            <Text component={Link} to="/movies/top-rated" className={classes.link}>
-              Top Rated
-            </Text>
-            <Text component={Link} to="/about" className={classes.link}>
-              About
-            </Text>
+            {navLinks}
           </Group>
           <MovieSearch />
         </Group>
