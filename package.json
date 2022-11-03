@@ -5,6 +5,7 @@
   "homepage": "https://bdgrimes.github.io/ultimate-moviegoers-guide/#",
   "dependencies": {
     "@emotion/react": "^11.10.5",
+    "@mantine/carousel": "^5.6.4",
     "@mantine/core": "^5.6.4",
     "@mantine/hooks": "^5.6.4",
     "@tabler/icons": "^1.109.0",

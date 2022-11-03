@@ -17,12 +17,13 @@ export const MovieCard = ({ movie }: Props) => {
           <Image
             radius="sm"
             src={`https://image.tmdb.org/t/p/w440_and_h660_face/${poster_path}`}
-            alt={title || 'No Title Found'}
+            alt={title}
+            withPlaceholder
           />
         )}
       </Card.Section>
       <Text size="md" weight="semibold" align="center" pb={3}>
-        {title || 'No Title Found'}
+        {title}
       </Text>
       <Group position="center">
         <MovieRating vote_average={vote_average} />

@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { Movie } from './Movie';
+import { MovieDetails } from './MovieDetails';
 import { NowPlaying } from './NowPlaying';
 import { Popular } from './Popular';
 import { SearchedMovies } from './SearchedMovies';
@@ -11,7 +11,7 @@ export const MovieRoutes = () => {
       <Route path="" element={<NowPlaying />} />
       <Route path="popular" element={<Popular />} />
       <Route path="top-rated" element={<TopRated />} />
-      <Route path=":movieId" element={<Movie />} />
+      <Route path=":movieId" element={<MovieDetails />} />
       <Route path="/search/:movieName" element={<SearchedMovies />} />
     </Routes>
   );
