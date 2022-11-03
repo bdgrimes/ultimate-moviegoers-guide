@@ -55,7 +55,7 @@ export const Header = () => {
   const { classes } = useStyles();
 
   const navLinks = links.map((link) => (
-    <Text component={Link} to={link.url} className={classes.link}>
+    <Text key={link.name} component={Link} to={link.url} className={classes.link}>
       {link.name}
     </Text>
   ));

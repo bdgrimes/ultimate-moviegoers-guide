@@ -20,7 +20,7 @@ export const HeaderMenu = ({ links }: Props) => {
   const [opened, { toggle, close }] = useDisclosure(false);
 
   const menuLinks = links.map((link) => (
-    <Menu.Item>
+    <Menu.Item key={link.name}>
       <Text component={Link} to={link.url} color="blue" onClick={close}>
         {link.name}
       </Text>
