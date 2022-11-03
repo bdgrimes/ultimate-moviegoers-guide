@@ -29,7 +29,7 @@ export const MovieSearch = () => {
 
   const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key !== 'Enter') return;
-    handleMovieSelected(searchValue);
+    navigate(`/movies/search/${searchValue}`);
   };
 
   return (
