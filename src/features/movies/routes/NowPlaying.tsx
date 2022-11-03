@@ -26,7 +26,12 @@ export const NowPlaying = () => {
       </Center>
       <MovieList paginatedMovies={nowPlayingQuery.data.pages} />
       <Center>
-        <Button onClick={() => nowPlayingQuery.fetchNextPage()}>Load More</Button>
+        <Button
+          disabled={!nowPlayingQuery.hasNextPage}
+          onClick={() => nowPlayingQuery.fetchNextPage()}
+        >
+          Load More
+        </Button>
       </Center>
     </>
   );
