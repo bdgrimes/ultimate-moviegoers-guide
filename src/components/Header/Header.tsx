@@ -65,7 +65,7 @@ export const Header = () => {
       <Box className={classes.container}>
         <Group>
           <HeaderMenu links={links} />
-          <Text weight="bold" component={Link} to="/" mr={5}>
+          <Text weight="bold" component={Link} to="/" mr={5} size={'lg'}>
             UMMG 🎬
           </Text>
         </Group>
