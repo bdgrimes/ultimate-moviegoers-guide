@@ -19,6 +19,7 @@ export const MovieSearch = () => {
   });
 
   const handleMovieSelected = () => {
+    if (searchValue.trim().length === 0) return;
     navigate(`/movies/search/${searchValue}`);
   };
 
