@@ -18,14 +18,18 @@ export const MovieSearch = () => {
     return obj;
   });
 
-  const handleMovieSelected = () => {
-    if (searchValue.trim().length === 0) return;
-    navigate(`/movies/search/${searchValue}`);
+  const handleMovieSelected = (value: string) => {
+    if (!value) return;
+    const foundMovie = movieSearchQuery.data?.results.find(
+      (movie) => movie.id.toString() === value
+    );
+    if (!foundMovie) return;
+    navigate(`/movies/search/${foundMovie.title}`);
   };
 
   const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key !== 'Enter') return;
-    handleMovieSelected();
+    handleMovieSelected(searchValue);
   };
 
   return (
