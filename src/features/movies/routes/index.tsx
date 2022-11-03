@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Movie } from './Movie';
 import { NowPlaying } from './NowPlaying';
 import { Popular } from './Popular';
+import { SearchedMovies } from './SearchedMovies';
 import { TopRated } from './TopRated';
 
 export const MovieRoutes = () => {
@@ -11,6 +12,7 @@ export const MovieRoutes = () => {
       <Route path="popular" element={<Popular />} />
       <Route path="top-rated" element={<TopRated />} />
       <Route path=":movieId" element={<Movie />} />
+      <Route path="/search/:movieName" element={<SearchedMovies />} />
     </Routes>
   );
 };

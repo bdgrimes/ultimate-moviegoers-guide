@@ -1,7 +1,7 @@
 import { Select } from '@mantine/core';
 import { useMovieSearch } from '../api/getMovieSearch';
 import { useDebouncedValue } from '@mantine/hooks';
-import { useState } from 'react';
+import { KeyboardEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IconSearch } from '@tabler/icons';
 
@@ -12,12 +12,13 @@ export const MovieSearch = () => {
   const movieSearchQuery = useMovieSearch(debouncedSearchValue);
   const movieNames = movieSearchQuery?.data?.results?.map((movie) => movie.title);
 
-  const handleMovieSelected = (movieName: string) => {
-    const selectedMovie = movieSearchQuery.data?.results?.find(
-      (movie) => movie.title === movieName
-    );
-    if (!selectedMovie) return;
-    navigate(`/movies/${selectedMovie.id}`);
+  const handleMovieSelected = () => {
+    navigate(`/movies/search/${searchValue}`);
+  };
+
+  const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key !== 'Enter') return;
+    handleMovieSelected();
   };
 
   return (
@@ -28,6 +29,7 @@ export const MovieSearch = () => {
       nothingFound="No Movie Found"
       data={movieNames || []}
       onSearchChange={setSearchValue}
+      onKeyDown={handleKeyPress}
       onChange={handleMovieSelected}
       searchValue={searchValue}
       maxDropdownHeight={280}

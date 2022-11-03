@@ -26,7 +26,9 @@ export const TopRated = () => {
       </Center>
       <MovieList paginatedMovies={topRatedQuery.data.pages} />
       <Center>
-        <Button onClick={() => topRatedQuery.fetchNextPage()}>Load More</Button>
+        <Button disabled={!topRatedQuery.hasNextPage} onClick={() => topRatedQuery.fetchNextPage()}>
+          Load More
+        </Button>
       </Center>
     </>
   );

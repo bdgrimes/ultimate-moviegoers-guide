@@ -26,7 +26,9 @@ export const Popular = () => {
       </Center>
       <MovieList paginatedMovies={popularQuery.data.pages} />
       <Center>
-        <Button onClick={() => popularQuery.fetchNextPage()}>Load More</Button>
+        <Button disabled={!popularQuery.hasNextPage} onClick={() => popularQuery.fetchNextPage()}>
+          Load More
+        </Button>
       </Center>
     </>
   );
