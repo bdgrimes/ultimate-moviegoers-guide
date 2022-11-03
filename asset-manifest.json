@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/ultimate-moviegoers-guide/static/css/main.e6c13ad2.css",
-    "main.js": "/ultimate-moviegoers-guide/static/js/main.f33cb746.js",
+    "main.js": "/ultimate-moviegoers-guide/static/js/main.6c1c5105.js",
     "static/js/787.33184607.chunk.js": "/ultimate-moviegoers-guide/static/js/787.33184607.chunk.js",
     "static/media/undraw_home_cinema_l7yl.svg": "/ultimate-moviegoers-guide/static/media/undraw_home_cinema_l7yl.805a5268329ddecb9d9a6de622497ea2.svg",
     "static/media/themoviedb.svg": "/ultimate-moviegoers-guide/static/media/themoviedb.de1a664e8d0777ca4ddb2a5a298bcfb6.svg",
     "index.html": "/ultimate-moviegoers-guide/index.html",
     "main.e6c13ad2.css.map": "/ultimate-moviegoers-guide/static/css/main.e6c13ad2.css.map",
-    "main.f33cb746.js.map": "/ultimate-moviegoers-guide/static/js/main.f33cb746.js.map",
+    "main.6c1c5105.js.map": "/ultimate-moviegoers-guide/static/js/main.6c1c5105.js.map",
     "787.33184607.chunk.js.map": "/ultimate-moviegoers-guide/static/js/787.33184607.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.f33cb746.js"
+    "static/js/main.6c1c5105.js"
   ]
 }
