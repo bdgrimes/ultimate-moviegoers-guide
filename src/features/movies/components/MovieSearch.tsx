@@ -8,9 +8,15 @@ import { IconSearch } from '@tabler/icons';
 export const MovieSearch = () => {
   const navigate = useNavigate();
   const [searchValue, setSearchValue] = useState<string>('');
-  const [debouncedSearchValue] = useDebouncedValue(searchValue, 500);
+  const [debouncedSearchValue] = useDebouncedValue(searchValue, 200);
   const movieSearchQuery = useMovieSearch(debouncedSearchValue);
-  const movieNames = movieSearchQuery?.data?.results?.map((movie) => movie.title);
+  const movieNames = movieSearchQuery?.data?.results?.map((movie) => {
+    const obj = {
+      value: movie.id.toString(),
+      label: movie.title,
+    };
+    return obj;
+  });
 
   const handleMovieSelected = () => {
     navigate(`/movies/search/${searchValue}`);

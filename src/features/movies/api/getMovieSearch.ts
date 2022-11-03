@@ -34,7 +34,7 @@ export const useInfiniteMovieSearch = (movieQuery: string) => {
   return useInfiniteQuery({
     queryKey: ['movies', 'search', 'infinite', movieQuery],
     queryFn: ({ pageParam = 1 }) => getInfiniteMovieSearch({ movieQuery, pageParam }),
-    keepPreviousData: true,
+    keepPreviousData: false,
     getNextPageParam: (lastPage) => {
       if (lastPage.page === lastPage.total_pages) return undefined;
       return lastPage.page + 1;
