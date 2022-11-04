@@ -26,7 +26,7 @@ export const MovieCard = ({ movie }: Props) => {
         {title}
       </Text>
       <Group position="center">
-        <MovieRating vote_average={vote_average} />
+        <MovieRating rating={vote_average} />
       </Group>
     </Card>
   );

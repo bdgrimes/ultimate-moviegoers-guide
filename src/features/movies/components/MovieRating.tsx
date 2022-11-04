@@ -1,11 +1,12 @@
 import { Rating } from '@mantine/core';
+import { tenStarRatingToFiveStarRating } from '../utils/formatting';
 
 interface Props {
-  vote_average: number | undefined;
+  rating: number | undefined;
 }
 
-export const MovieRating = ({ vote_average }: Props) => {
-  const voteAverageAsFiveStarCount = ((vote_average || 0) * 10) / 20;
+export const MovieRating = ({ rating }: Props) => {
+  const voteAverageAsFiveStarCount = tenStarRatingToFiveStarRating(rating);
 
   return <Rating fractions={2} value={voteAverageAsFiveStarCount} readOnly />;
 };

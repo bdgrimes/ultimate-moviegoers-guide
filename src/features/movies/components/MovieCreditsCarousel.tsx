@@ -25,7 +25,7 @@ export const MovieCreditsCarousel = ({ movieId }: Props) => {
       dragFree
     >
       {movieCreditsQuery.data.cast.map((cast) => (
-        <Carousel.Slide>
+        <Carousel.Slide key={cast.cast_id}>
           <Image
             radius="sm"
             src={`https://image.tmdb.org/t/p/w138_and_h175_face/${cast.profile_path} `}

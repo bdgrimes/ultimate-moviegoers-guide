@@ -15,7 +15,7 @@ export const getInfiniteMovieSearch = async ({
 }: {
   movieQuery: string;
   pageParam: number;
-}) => {
+}): Promise<PaginatedMovies> => {
   const res = await fetch(
     `https://api.themoviedb.org/3/search/movie?api_key=e2f91aa33bd87c356d18db8b8978fe44&language=en-US&query=${movieQuery}&page=${pageParam}&include_adult=false`
   );
@@ -25,14 +25,15 @@ export const getInfiniteMovieSearch = async ({
 
 export const useMovieSearch = (movieQuery: string) => {
   return useQuery({
-    queryKey: ['movies', 'search', movieQuery],
+    queryKey: ['search', 'movies', movieQuery],
     queryFn: () => getMovieSearch(movieQuery),
+    enabled: movieQuery.trim().length > 0,
   });
 };
 
 export const useInfiniteMovieSearch = (movieQuery: string) => {
   return useInfiniteQuery({
-    queryKey: ['movies', 'search', 'infinite', movieQuery],
+    queryKey: ['search', 'movies', 'infinite', movieQuery],
     queryFn: ({ pageParam = 1 }) => getInfiniteMovieSearch({ movieQuery, pageParam }),
     keepPreviousData: false,
     getNextPageParam: (lastPage) => {

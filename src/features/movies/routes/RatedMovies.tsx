@@ -1,16 +1,18 @@
 import { CenteredLoader } from '../../../components/Elements/CenteredLoader';
-import { useTopRated } from '../api/getTopRated';
 import { MovieList } from '../components/MovieList';
 import { Button, Center, Title } from '@mantine/core';
+import { useInfiniteRatedMovies } from '../api/getRatedMovies';
+import { useGuestSession } from '../../auth/hooks/useGuestSession';
 
-export const TopRated = () => {
-  const topRatedQuery = useTopRated();
+export const RatedMovies = () => {
+  const guestSession = useGuestSession();
+  const ratedMoviesQuery = useInfiniteRatedMovies(guestSession?.guest_session_id);
 
-  if (topRatedQuery.isLoading) {
+  if (ratedMoviesQuery.isLoading) {
     return <CenteredLoader />;
   }
 
-  if (!topRatedQuery?.data?.pages) {
+  if (!ratedMoviesQuery?.data?.pages) {
     return (
       <Center>
         <Title order={1}>Failed to load movie data.</Title>
@@ -27,12 +29,15 @@ export const TopRated = () => {
           variant="gradient"
           gradient={{ from: 'indigo', to: 'blue', deg: 45 }}
         >
-          Top Rated
+          Movies You've Rated
         </Title>
       </Center>
-      <MovieList paginatedMovies={topRatedQuery.data.pages} />
+      <MovieList paginatedMovies={ratedMoviesQuery.data.pages} />
       <Center>
-        <Button disabled={!topRatedQuery.hasNextPage} onClick={() => topRatedQuery.fetchNextPage()}>
+        <Button
+          disabled={!ratedMoviesQuery.hasNextPage}
+          onClick={() => ratedMoviesQuery.fetchNextPage()}
+        >
           Load More
         </Button>
       </Center>

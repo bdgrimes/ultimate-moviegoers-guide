@@ -10,7 +10,13 @@ export const Popular = () => {
     return <CenteredLoader />;
   }
 
-  if (!popularQuery?.data?.pages) return null;
+  if (!popularQuery?.data?.pages) {
+    return (
+      <Center>
+        <Title order={1}>Failed to load movie data.</Title>
+      </Center>
+    );
+  }
 
   return (
     <>

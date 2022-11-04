@@ -10,7 +10,13 @@ export const NowPlaying = () => {
     return <CenteredLoader />;
   }
 
-  if (!nowPlayingQuery?.data?.pages) return null;
+  if (!nowPlayingQuery?.data?.pages) {
+    return (
+      <Center>
+        <Title order={1}>Failed to load movie data.</Title>
+      </Center>
+    );
+  }
 
   return (
     <>

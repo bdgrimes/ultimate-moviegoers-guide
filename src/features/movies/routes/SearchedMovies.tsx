@@ -1,6 +1,6 @@
 import { CenteredLoader } from '../../../components/Elements/CenteredLoader';
 import { MovieList } from '../components/MovieList';
-import { Button, Center } from '@mantine/core';
+import { Button, Center, Title } from '@mantine/core';
 import { useInfiniteMovieSearch } from '../api/getMovieSearch';
 import { useParams } from 'react-router';
 
@@ -12,7 +12,13 @@ export const SearchedMovies = () => {
     return <CenteredLoader />;
   }
 
-  if (!searchQuery?.data?.pages) return null;
+  if (!searchQuery?.data?.pages) {
+    return (
+      <Center>
+        <Title order={1}>Failed to load movie data.</Title>
+      </Center>
+    );
+  }
 
   return (
     <>

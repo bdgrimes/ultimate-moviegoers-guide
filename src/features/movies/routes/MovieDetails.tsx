@@ -1,15 +1,13 @@
 import { useParams } from 'react-router-dom';
-import { Box, Container, Center, Grid, Group, Image, Text, Title } from '@mantine/core';
-import { useDetails } from '../api/getDetails';
+import { Box, Center, Grid, Image, Text, Title } from '@mantine/core';
+import { useMovieDetails } from '../api/getMovieDetails';
 import { CenteredLoader } from '../../../components/Elements/CenteredLoader';
-import { MovieRating } from '../components/MovieRating';
 import { MovieCreditsCarousel } from '../components/MovieCreditsCarousel';
+import { MovieInfoContainer } from '../components/MovieInfoContainer';
 
 export const MovieDetails = () => {
   let { movieId } = useParams();
-  const movieDetailsQuery = useDetails(+movieId!);
-  const genres = movieDetailsQuery?.data?.genres?.map((genre) => `${genre.name}`).join('/');
-  const releaseYear = `(${movieDetailsQuery?.data?.release_date.split('-')[0] || ''})`;
+  const movieDetailsQuery = useMovieDetails(+movieId!);
 
   if (movieDetailsQuery.isLoading) return <CenteredLoader />;
 
@@ -47,30 +45,7 @@ export const MovieDetails = () => {
         </Grid.Col>
         <Grid.Col sm={1} />
         <Grid.Col xl={5} lg={5} md={5} sm={5} xs={11} mt={20}>
-          <Container
-            sx={(theme) => ({
-              background: 'rgba(255, 255, 255, 0.4)',
-              borderRadius: '16px',
-              boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
-              backdropFilter: 'blur(5px)',
-              padding: '15px',
-            })}
-          >
-            <Group>
-              <Title weight="400" order={1} mb={5}>
-                {movieDetailsQuery.data.title} {releaseYear}
-              </Title>
-              <Text weight="200">{genres}</Text>
-              <MovieRating vote_average={movieDetailsQuery.data.vote_average} />
-            </Group>
-            <Text weight="300" italic mb={5}>
-              {movieDetailsQuery.data.tagline}
-            </Text>
-            <Text weight="300" mb={10}>
-              {movieDetailsQuery.data.overview}
-            </Text>
-            <Text weight="300">Runtime {movieDetailsQuery.data.runtime} minutes</Text>
-          </Container>
+          <MovieInfoContainer movieDetails={movieDetailsQuery.data} />
         </Grid.Col>
         <Grid.Col xs={11}>
           <Title order={3} weight={400}>

@@ -1,28 +1,28 @@
 import { Movie } from './Movie';
 
-type Genre = {
+export type Genre = {
   id: number;
   name: string;
 };
 
-type ProductionCompany = {
+export type ProductionCompany = {
   name: string;
   id: number;
   logo_path: string | null;
   origin_country: string;
 };
 
-type ProductionCountry = {
+export type ProductionCountry = {
   iso_3166_1: string;
   name: string;
 };
 
-type SpokenLanguage = {
+export type SpokenLanguage = {
   iso_6319_1: string;
   name: string;
 };
 
-export type Details = Movie & {
+export type MovieDetails = Movie & {
   belongs_to_collection: null | object;
   budget: number;
   genres: Genre[];

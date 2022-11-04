@@ -15,13 +15,8 @@ const useStyles = createStyles((theme) => ({
     },
     marginRight: 'auto',
   },
-  burger: {
-    [theme.fn.largerThan('sm')]: {
-      display: 'none',
-    },
-  },
   linkContainer: {
-    [theme.fn.smallerThan('sm')]: {
+    [theme.fn.smallerThan('md')]: {
       display: 'none',
     },
   },
@@ -34,6 +29,10 @@ const useStyles = createStyles((theme) => ({
 
 const links: NavLink[] = [
   {
+    name: 'Home',
+    url: '/',
+  },
+  {
     name: 'Now Playing',
     url: '/movies',
   },
@@ -44,6 +43,10 @@ const links: NavLink[] = [
   {
     name: 'Top Rated',
     url: '/movies/top-rated',
+  },
+  {
+    name: 'Rated',
+    url: '/movies/rated',
   },
   {
     name: 'About',
@@ -65,7 +68,14 @@ export const Header = () => {
       <Box className={classes.container}>
         <Group>
           <HeaderMenu links={links} />
-          <Text weight="bold" component={Link} to="/" mr={5} size={'lg'}>
+          <Text
+            weight="bold"
+            component={Link}
+            to="/"
+            mr={5}
+            size={'lg'}
+            className={classes.linkContainer}
+          >
             UMMG 🎬
           </Text>
         </Group>

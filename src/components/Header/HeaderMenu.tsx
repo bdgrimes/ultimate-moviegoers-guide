@@ -5,7 +5,7 @@ import { NavLink } from './types';
 
 const useStyles = createStyles((theme) => ({
   burger: {
-    [theme.fn.largerThan('sm')]: {
+    [theme.fn.largerThan('md')]: {
       display: 'none',
     },
   },
@@ -20,8 +20,8 @@ export const HeaderMenu = ({ links }: Props) => {
   const [opened, { toggle, close }] = useDisclosure(false);
 
   const menuLinks = links.map((link) => (
-    <Menu.Item key={link.name}>
-      <Text component={Link} to={link.url} color="blue" onClick={close}>
+    <Menu.Item key={link.name} component={Link} to={link.url}>
+      <Text color="blue" onClick={close}>
         {link.name}
       </Text>
     </Menu.Item>
