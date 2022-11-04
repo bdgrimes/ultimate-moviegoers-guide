@@ -12,6 +12,10 @@ Movie data provided by [TheMovieDB](https://www.themoviedb.org/)
 
 - [Deploying Locally For Development](docs/local-development.md)
 
+## Guest Sessions
+
+Guest sessions are created to allow for rating movies. These sessions are stored in local storage after being initially created. Movies can be rated from the movie details page and are saved to your session. You can view the movies you've rated from the 'Rated' sort, and you can view the ratings you gave these movies by visiting the movies details page.
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
